@@ -1,0 +1,35 @@
+# Ambiente virtual Python
+.venv/
+.venv312/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Bancos locais
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+
+# Arquivos temporários
+*.log
+
+# Next.js
+.next/
+out/
+
+# Node
+node_modules/

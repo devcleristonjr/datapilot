@@ -1,0 +1,85 @@
+{
+	"folders": [],
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			"/^powershell -NoLogo -ExecutionPolicy Bypass -Command \"\\$env:Path \\+= ';C:\\\\Program Files\\\\nodejs'; \\$backend = Invoke-WebRequest -Uri 'http://127\\.0\\.0\\.1:8001/health' -UseBasicParsing; Write-Output \\$backend\\.Content; cd 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\frontend'; npm run build\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cd \"C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend\"; \\.\\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe -m pip install pytest$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^Set-Location 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'; \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe -m pip install pytest$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^Set-Location 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'; \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe -m pytest tests/test_persistence\\.py -q$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^Set-Location 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'; \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe -m pytest tests/test_upload_validation\\.py -q$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^powershell -NoLogo -ExecutionPolicy Bypass -Command \"\\. 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend\\\\\\.venv312\\\\Scripts\\\\Activate\\.ps1'; cd 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'; python -m pytest tests/test_history\\.py tests/test_upload_validation\\.py tests/test_persistence\\.py -q\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd\\.exe /C \"cd /d C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend && set PORT=8001 && \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe main\\.py\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^powershell -NoLogo -ExecutionPolicy Bypass -Command @'\n\\$backend = 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'\n\\$csvPath = Join-Path \\$env:TEMP 'datapilot_test_upload\\.csv'\nSet-Content -Path \\$csvPath -Value \"nome,idade`nAna,30`nBruno,25`n\" -Encoding utf8\n\\$proc = Start-Process -FilePath \"\\$backend\\\\\\.venv312\\\\Scripts\\\\python\\.exe\" -ArgumentList 'main\\.py' -WorkingDirectory \\$backend -PassThru -NoNewWindow\nStart-Sleep -Seconds 5\ntry \\{\n    \\$health = Invoke-RestMethod -Uri 'http://127\\.0\\.0\\.1:8001/health' -Method Get\n    Write-Output \"HEALTH: \\$\\(\\$health \\| ConvertTo-Json -Compress\\)\"\n    \\$upload = Invoke-RestMethod -Uri 'http://127\\.0\\.0\\.1:8001/api/upload' -Method Post -Form @\\{ file = Get-Item \\$csvPath \\}\n    Write-Output \"UPLOAD: \\$\\(\\$upload \\| ConvertTo-Json -Compress\\)\"\n\\}\nfinally \\{\n    Stop-Process -Id \\$proc\\.Id -Force\n\\}\n'@$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^python -c \"import os, subprocess, sys, time, pathlib, tempfile, requests; backend=r'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'; exe=r'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend\\\\\\.venv312\\\\Scripts\\\\python\\.exe'; p=subprocess\\.Popen\\(\\[exe,'-m','uvicorn','main:app','--host','127\\.0\\.0\\.1','--port','8001'\\], cwd=backend, stdout=subprocess\\.DEVNULL, stderr=subprocess\\.DEVNULL\\); time\\.sleep\\(4\\); r=requests\\.get\\('http://127\\.0\\.0\\.1:8001/health', timeout=5\\); print\\('HEALTH', r\\.status_code, r\\.text\\); csv_path=pathlib\\.Path\\(tempfile\\.gettempdir\\(\\)\\)/'datapilot_test_upload\\.csv'; csv_path\\.write_text\\('nome,idade\\\\nAna,30\\\\nBruno,25\\\\n', encoding='utf-8'\\); f=open\\(csv_path,'rb'\\); resp=requests\\.post\\('http://127\\.0\\.0\\.1:8001/api/upload', files=\\{'file': \\('datapilot_test_upload\\.csv', f, 'text/csv'\\)\\}, timeout=20\\); print\\('UPLOAD', resp\\.status_code, resp\\.text\\); f\\.close\\(\\); p\\.terminate\\(\\); p\\.wait\\(timeout=10\\)\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd\\.exe /C \"cd /d C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend && \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe -m uvicorn main:app --host 127\\.0\\.0\\.1 --port 8001 >NUL 2>&1\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^powershell -NoLogo -ExecutionPolicy Bypass -Command \"\\. 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend\\\\\\.venv312\\\\Scripts\\\\Activate\\.ps1'; cd 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend'; python tests/test_upload_flow\\.py\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd\\.exe /C \"cd /d C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend && \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe tests/test_upload_flow\\.py > upload_flow_result\\.txt 2>&1\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd\\.exe /C \"cd /d C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend && \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe tests/test_upload_flow\\.py > upload_flow_result\\.txt 2>&1 && type upload_flow_result\\.txt\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cd 'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend' ; \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe tests/test_upload_flow\\.py$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd\\.exe /C \"cd /d C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend && \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe tests/test_upload_flow\\.py > tmp_upload_flow\\.txt 2>&1\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd\\.exe /C \"cd /d C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend && \\.\\\\\\.venv312\\\\Scripts\\\\python\\.exe -c \"\"import subprocess, time, pathlib, tempfile, requests; p=subprocess\\.Popen\\(\\['\\.\\\\\\\\\\.venv312\\\\\\\\Scripts\\\\\\\\python\\.exe','-m','uvicorn','main:app','--host','127\\.0\\.0\\.1','--port','8001'\\], cwd=r'C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\backend', stdout=subprocess\\.DEVNULL, stderr=subprocess\\.DEVNULL\\); time\\.sleep\\(3\\); h=requests\\.get\\('http://127\\.0\\.0\\.1:8001/health', timeout=5\\); print\\(h\\.status_code\\); print\\(h\\.json\\(\\)\\['status'\\]\\); f=pathlib\\.Path\\(tempfile\\.gettempdir\\(\\)\\)/'datapilot_test_upload\\.csv'; f\\.write_text\\('nome,idade\\\\\\\\nAna,30\\\\\\\\nBruno,25\\\\\\\\n', encoding='utf-8'\\); with f\\.open\\('rb'\\) as fh: r=requests\\.post\\('http://127\\.0\\.0\\.1:8001/api/upload', files=\\{'file': \\('datapilot_test_upload\\.csv', fh, 'text/csv'\\)\\}, timeout=20\\); print\\(r\\.status_code\\); print\\(r\\.json\\(\\)\\['dataset_id'\\]\\); p\\.terminate\\(\\); p\\.wait\\(timeout=10\\)\"\"\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"npm run build": true,
+			"/^cd \"C:\\\\Users\\\\Administrador\\\\Documents\\\\codespaces-blank-main\\\\codespaces-blank-main\\\\datapilot\\\\frontend\" ; npm run dev -- --hostname 127\\.0\\.0\\.1 --port 3000$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"where.exe": true,
+			"/^cd /d \"C:\\\\Program Files\\\\nodejs\" ; node -v ; npm -v$/": {
+				"approve": true,
+				"matchCommandLine": true
+			},
+			"/^cmd /C \"C:\\\\Program Files\\\\nodejs\\\\node\\.exe -v & C:\\\\Program Files\\\\nodejs\\\\npm\\.cmd -v\"$/": {
+				"approve": true,
+				"matchCommandLine": true
+			}
+		}
+	}
+}
